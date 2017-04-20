@@ -52,11 +52,11 @@ public class MainActivity extends AppCompatActivity {
 
 
 //                //Show a toast that display the text on the selected radio button
-                Toast.makeText(getBaseContext(), "Good day!",
-                        Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getBaseContext(), "Good day!",
+//                        Toast.LENGTH_SHORT).show();
 
 
-                //Put the name and age into an array
+
                 String [] info = {rbRead.getText().toString(), rbArrive.getText().toString(),
                         rbAttempt.getText().toString(), etReflection.getText().toString() };
 
