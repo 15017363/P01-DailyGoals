@@ -117,18 +117,4 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
-//
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//        SharedPreferences prefs = PreferenceManager
-//                .getDefaultSharedPreferences(this);
-//
-//        int checked = prefs.getInt("Read",0);
-//        rg1.check(checked);
-//
-//
-//    }
 }
