@@ -25,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        getSupportActionBar().setTitle("Daily Goals");
+
+
         rg1 = (RadioGroup)findViewById(R.id.RadioGroup1);
         rg2 = (RadioGroup)findViewById(R.id.RadioGroup2);
         rg3 = (RadioGroup)findViewById(R.id.RadioGroup3);
@@ -32,8 +35,9 @@ public class MainActivity extends AppCompatActivity {
         etReflection = (EditText)findViewById(R.id.editTextReflection);
 
 
-
         Button btnOk = (Button)findViewById(R.id.buttonOk);
+        Button btnReset = (Button)findViewById(R.id.buttonReset);
+
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,9 +60,10 @@ public class MainActivity extends AppCompatActivity {
 //                        Toast.LENGTH_SHORT).show();
 
 
+                String reflection = etReflection.getText().toString();
 
                 String [] info = {rbRead.getText().toString(), rbArrive.getText().toString(),
-                        rbAttempt.getText().toString(), etReflection.getText().toString() };
+                        rbAttempt.getText().toString(), reflection };
 
                 //Create an intent to start another activity called
                 //DemoActivities (which we would create later)
@@ -75,11 +80,23 @@ public class MainActivity extends AppCompatActivity {
                 prefEdit.putInt("Read",selectedButtonidRead);
                 prefEdit.putInt("Arrive",selectedButtonidArrive);
                 prefEdit.putInt("Attempt",selectedButtonidAttempt);
-                prefEdit.putString("Reflection",etReflection.getText().toString());
+                prefEdit.putString("Reflection",reflection);
 
                 prefEdit.commit();
             }
         });
+
+        btnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rg1.clearCheck();
+                rg2.clearCheck();
+                rg3.clearCheck();
+                etReflection.setText("");
+
+            }
+        });
+
     }
 
     @Override
@@ -97,20 +114,9 @@ public class MainActivity extends AppCompatActivity {
     rg3.check(checked3);
     etReflection.setText(reflection);
 
-//        if(rg1 != null){
-//            rg1.check(checked1);
-//        }
-//
-//        if(rg2 != null){
-//            rg2.check(checked2);
-//        }
-//        if(rg3 != null){
-//            rg3.check(checked3);
-//        }
-
-
-
     }
+
+
 
 
 //
